@@ -2,13 +2,15 @@ import 'package:exam_management_app/utils/global.colors.dart';
 import 'package:flutter/material.dart';
 
 class ButtonGlobal extends StatelessWidget {
-  const ButtonGlobal({Key? key, required this.text, required Null Function() onPressed}) : super(key: key);
   final String text;
+  final VoidCallback onPressed;
+
+  const ButtonGlobal({Key? key, required this.text, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => {print('Login')},
+      onTap: onPressed,
       child: Container(
         height: 55,
         alignment: Alignment.center,
@@ -33,3 +35,4 @@ class ButtonGlobal extends StatelessWidget {
     );
   }
 }
+

@@ -1,16 +1,17 @@
 import 'package:exam_management_app/constants/constants.dart';
 import 'package:exam_management_app/utils/global.colors.dart';
-import 'package:exam_management_app/view/home.view.dart'; // Import HomeView
-import 'package:exam_management_app/view/signup.view.dart';
 import 'package:exam_management_app/view/widgets/button.global.dart';
 import 'package:exam_management_app/view/widgets/social.login.dart';
 import 'package:exam_management_app/view/widgets/text.form.global.dart';
 import 'package:flutter/material.dart';
 
-class LoginView extends StatelessWidget {
-  LoginView({Key? key}) : super(key: key);
+class SignUpView extends StatelessWidget {
+  SignUpView({Key? key}) : super(key: key);
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +42,7 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(height: 50),
                 Text(
-                  'Login to your account',
+                  'Create your account',
                   style: TextStyle(
                     color: GlobalColors().mainColor,
                     fontSize: 20,
@@ -57,18 +58,23 @@ class LoginView extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 TextFormGlobal(
-                    controller: passwordController,
-                    text: 'Password',
-                    textInputType: TextInputType.text,
-                    obscure: true),
+                  controller: passwordController,
+                  text: 'Password',
+                  textInputType: TextInputType.text,
+                  obscure: true,
+                ),
+                const SizedBox(height: 20),
+                TextFormGlobal(
+                  controller: confirmPasswordController,
+                  text: 'Confirm Password',
+                  textInputType: TextInputType.text,
+                  obscure: true,
+                ),
                 const SizedBox(height: 20),
                 ButtonGlobal(
-                  text: 'Sign in',
+                  text: 'Sign Up',
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeView()),
-                    );
+                    // Handle sign up
                   },
                 ),
                 const SizedBox(height: 20),
@@ -77,17 +83,14 @@ class LoginView extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Don\'t have an account? '),
+                    const Text('Already have an account? '),
                     InkWell(
                       onTap: () {
-                        // Điều hướng tới trang Sign Up
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUpView()),
-                        );
+                        // Handle sign in navigation
+                        Navigator.pop(context);
                       },
                       child: Text(
-                        'Sign Up',
+                        'Sign In',
                         style: TextStyle(color: GlobalColors().mainColor),
                       ),
                     ),
