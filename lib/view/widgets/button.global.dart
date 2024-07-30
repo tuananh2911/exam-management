@@ -2,7 +2,7 @@ import 'package:exam_management_app/utils/global.colors.dart';
 import 'package:flutter/material.dart';
 
 class ButtonGlobal extends StatelessWidget {
-  const ButtonGlobal({Key? key, required this.text}) : super(key: key);
+  const ButtonGlobal({Key? key, required this.text, required Null Function() onPressed}) : super(key: key);
   final String text;
 
   @override

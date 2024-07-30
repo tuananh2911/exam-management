@@ -19,12 +19,12 @@ class TextFormGlobal extends StatelessWidget {
       height: 55,
       padding: const EdgeInsets.only(top: 3, left: 15),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(6),
+        color: const Color.fromARGB(255, 255, 255, 255),
+        borderRadius: BorderRadius.circular(50),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
-            spreadRadius: 1,
+            spreadRadius: 4,
             blurRadius: 7,
             offset: const Offset(0, 3),
           ),

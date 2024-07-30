@@ -13,7 +13,7 @@ class SocialLogin extends StatelessWidget {
           
           alignment: Alignment.center,
           child: Text(
-            '---Or sign in with---',
+            '--- Or sign in with ---',
             style: TextStyle(
               color: GlobalColors().textColor,
               // fontSize: 35,
