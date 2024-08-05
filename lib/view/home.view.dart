@@ -6,11 +6,36 @@ class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);
 
   final List<Map<String, dynamic>> items = [
-    {"title": "Bài kiểm tra 1", "date": "14-Th1-2018", "count": 30},
-    {"title": "Bài kiểm tra 2", "date": "14-Th1-2018", "count": 40},
-    {"title": "Bài kiểm tra 3", "date": "14-Th1-2018", "count": 80},
-    {"title": "Bài kiểm tra 4", "date": "14-Th1-2018", "count": 20},
-    {"title": "Bài kiểm tra 5", "date": "14-Th1-2018", "count": 40},
+    {
+      "title": "Bài kiểm tra 1",
+      "date": "14-Th1-2018",
+      "count": 30,
+      "class": "7A"
+    },
+    {
+      "title": "Bài kiểm tra 2",
+      "date": "14-Th1-2018",
+      "count": 40,
+      "class": "8A"
+    },
+    {
+      "title": "Bài kiểm tra 3",
+      "date": "14-Th1-2018",
+      "count": 80,
+      "class": "9A"
+    },
+    {
+      "title": "Bài kiểm tra 4",
+      "date": "14-Th1-2018",
+      "count": 20,
+      "class": "6A"
+    },
+    {
+      "title": "Bài kiểm tra 5",
+      "date": "14-Th1-2018",
+      "count": 40,
+      "class": "10A"
+    },
   ];
 
   @override
@@ -21,7 +46,8 @@ class HomeView extends StatelessWidget {
         backgroundColor: GlobalColors().mainColor,
       ),
       drawer: Drawer(
-        child: SafeArea( // Bọc Drawer trong SafeArea
+        child: SafeArea(
+          // Bọc Drawer trong SafeArea
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
@@ -53,7 +79,6 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
-              
               ListTile(
                 leading: const Icon(Icons.assignment),
                 title: Text('Bài kiểm tra'),
@@ -94,7 +119,7 @@ class HomeView extends StatelessWidget {
             child: ListTile(
               title: Text(
                 items[index]['title'],
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -102,8 +127,17 @@ class HomeView extends StatelessWidget {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Ngày tạo'),
-                  Text(items[index]['date']),
+                  Text(
+                    'Lớp học: ' + items[index]['class'],
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: GlobalColors().mainColor),
+                  ),
+                  Text(items[index]['date'],
+                      style: const TextStyle(
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 0, 0, 0))),
                 ],
               ),
               trailing: Column(
